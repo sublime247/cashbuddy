@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class FIRSTPAGE extends StatefulWidget {
   const FIRSTPAGE({Key? key}) : super(key: key);
@@ -9,20 +8,6 @@ class FIRSTPAGE extends StatefulWidget {
 }
 
 class _FIRSTPAGEState extends State<FIRSTPAGE> {
-  final web= "https://app.cashbuddy.ng";
-
-  void goToWebsite(String ourwebsite) {
-    try {
-      launchUrlString(
-        ourwebsite,
-        mode: LaunchMode.inAppWebView,
-         webViewConfiguration: const WebViewConfiguration(enableJavaScript: true) 
-      );
-    } catch (e) {
-      throw 'Couldn\'t launch $ourwebsite';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +19,7 @@ class _FIRSTPAGEState extends State<FIRSTPAGE> {
               onTap: () {
                 Navigator.pushNamed(context, '/home');
               },
-              child: Padding(
+              child:const Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Icon(
                   Icons.chevron_left,
@@ -68,7 +53,7 @@ class _FIRSTPAGEState extends State<FIRSTPAGE> {
               margin: const EdgeInsets.only(bottom: 30.0),
               child: ElevatedButton(
                   onPressed: () {
-                    goToWebsite(web);
+                    Navigator.pushNamed(context, '/webpage');
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
